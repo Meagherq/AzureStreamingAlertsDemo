@@ -4,8 +4,6 @@ resource "azurerm_stream_analytics_output_servicebus_topic" "sb_ouput" {
   resource_group_name       = var.resource_group_name
   topic_name                = var.topic_name
   servicebus_namespace      = var.servicebus_namespace
-  shared_access_policy_key  = var.shared_access_policy_key
-  shared_access_policy_name = var.shared_access_policy_name
   authentication_mode       = var.authentication_mode
 
   serialization {

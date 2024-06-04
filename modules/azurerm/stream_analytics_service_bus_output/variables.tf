@@ -10,9 +10,3 @@ variable stream_analytics_job_user_assigned_principal_id {
 variable authentication_mode {
     default = "Msi"
 }
-variable shared_access_policy_name {
-    default = null
-}
-variable shared_access_policy_key {
-    default = null
-}

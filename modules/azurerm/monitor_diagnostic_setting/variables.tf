@@ -9,9 +9,6 @@ variable eventhub_name {
 variable eventhub_authorization_rule_id {
     default = null
 }
-variable log_analytics_destination_type {
-    default = "Dedicated"
-}
 variable log_analytics_workspace_id {
     default = null
 }

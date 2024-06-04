@@ -121,15 +121,13 @@ module "stream_analytics_service_bus_output" {
   source = "../../modules/azurerm/stream_analytics_service_bus_output"
 
   name                      = local.stream_analytics_service_bus_output_name
-  stream_analytics_job_name = module.stream_analytics_job.id
+  stream_analytics_job_name = module.stream_analytics_job.name
   servicebus_namespace      = data.azurerm_servicebus_namespace.sb_namespace.name
   servicebus_namespace_id   = data.azurerm_servicebus_namespace.sb_namespace.id
   topic_name                = data.azurerm_servicebus_topic.sb_topic.name
   resource_group_name       = module.resource_group.name
   stream_analytics_job_user_assigned_principal_id = module.stream_analytics_job.user_assigned_principal_id
   authentication_mode = "Msi"
-  # authentication_mode       = "ConnectionString"
-  # shared_access_policy_name = "RootManageSharedAccessKey"
 }
 
 module "stream_analytics_array_udf" {
