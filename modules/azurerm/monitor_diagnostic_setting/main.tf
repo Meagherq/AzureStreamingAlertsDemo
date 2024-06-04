@@ -11,25 +11,8 @@ resource "azurerm_monitor_diagnostic_setting" "setting" {
   log_analytics_workspace_id     = var.log_analytics_workspace_id
 
 
-  dynamic "enabled_log" {
+  dynamic enabled_log {
     for_each = data.azurerm_monitor_diagnostic_categories.categories.log_category_types
-
-    content {
-      category = enabled_log.value
-      
-      dynamic "retention_policy" {
-        for_each = var.storage_account_id == null ? {} : tomap(var.storage_account_id)
-        content {
-          enabled = true
-          days = var.storage_retention_days
-        }
-        
-      }
-    }
-  }
-
-  dynamic "metric" {
-    for_each = data.azurerm_monitor_diagnostic_categories.categories.metrics
 
     content {
       category = enabled_log.value

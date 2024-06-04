@@ -30,7 +30,3 @@ module "alerting_infra" {
     private_endpoint_virtual_network_name = "apps-vnet-${var.environment}"
     private_endpoint_virtual_network_resource_group_name = "apps-vnet-rg-${var.environment}"
 }
-
-data "azurerm_monitor_diagnostic_categories" "categories" {
-  resource_id = "/subscriptions/d73c06de-7a04-4b79-b1ac-37e8b1b3cee4/resourceGroups/rg-stream-alerting-dev/providers/Microsoft.EventHub/namespaces/eh-ns-stream-alerting-dev"
-}

@@ -6,13 +6,13 @@ resource "azurerm_eventhub_namespace" "ns" {
   capacity            = var.capacity
 }
 
-# module "diagnostic_settings" {
-#   source = "../monitor_diagnostic_setting"
+module "diagnostic_settings" {
+  source = "../monitor_diagnostic_setting"
 
-#   resource_id = azurerm_eventhub_namespace.ns.id
-#   name = "eh-ns-diagnosticsetting"
-#   log_analytics_workspace_id = var.log_analytics_workspace_id
-# }
+  resource_id = azurerm_eventhub_namespace.ns.id
+  name = "eh-ns-diagnosticsetting"
+  log_analytics_workspace_id = var.log_analytics_workspace_id
+}
 
 resource "azurerm_private_endpoint" "pe" {
   name                = "${azurerm_eventhub_namespace.ns.name}-pe"

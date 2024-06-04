@@ -24,10 +24,10 @@ resource "azurerm_user_assigned_identity" "identity" {
   resource_group_name = var.resource_group_name
 }
 
-# module "diagnostic_settings" {
-#   source = "../monitor_diagnostic_setting"
+module "diagnostic_settings" {
+  source = "../monitor_diagnostic_setting"
 
-#   resource_id = azurerm_stream_analytics_job.job.id
-#   name = "sa-job-diagnosticsetting"
-#   log_analytics_workspace_id = var.log_analytics_workspace_id
-# }
+  resource_id = azurerm_stream_analytics_job.job.id
+  name = "sa-job-diagnosticsetting"
+  log_analytics_workspace_id = var.log_analytics_workspace_id
+}
